@@ -16,9 +16,8 @@ $ sudo /usr/local/cuda-10.0/bin/uninstall_cuda_10.0.pl).You can choose needful a
     1.1. Verify You Have a CUDA-Capable GPU
  
       $ lspci | grep -i nvidia
-I
+    
     1.2. Verify You Have a Supported Version of Linux
-
       $ uname -m && cat /etc/*release
 
     1.3. Verify the System Has gcc Installed
@@ -44,45 +43,45 @@ I
         The NVIDIA CUDA Toolkit is available at http://developer.nvidia.com/cuda-downloads.
  
  Two:
-  2.1 The Nouveau drivers are loaded if the following command prints anything:
-      $ lsmod | grep nouveau
-     
-   To install the Display Driver, the Nouveau drivers must first be disabled. Each distribution of Linux has a different
-  method for disabling Nouveau.
  
-  Fedora
-     Create a file at /usr/lib/modprobe.d/blacklist-nouveau.conf with the following contents:
-         blacklist nouveau
-         options nouveau modeset=0
-     Regenerate the kernel initramfs:
-         $ sudo dracut --force
-     Run the below command:
-         $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
-     Reboot the system.
-  
-  RHEL/CentOS
+     2.1 The Nouveau drivers are loaded if the following command prints anything:
+            $ lsmod | grep nouveau
+     
+     To install the Display Driver, the Nouveau drivers must first be disabled. Each distribution of Linux has a different
+    method for disabling Nouveau.
+ 
+    Fedora
+      Create a file at /usr/lib/modprobe.d/blacklist-nouveau.conf with the following contents:
+             blacklist nouveau
+             options nouveau modeset=0
+      Regenerate the kernel initramfs:
+             $ sudo dracut --force
+      Run the below command:
+             $ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+      Reboot the system.
+    RHEL/CentOS
       Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
          blacklist nouveau
          options nouveau modeset=0
       Regenerate the kernel initramfs:
          $ sudo dracut --force
-  OpenSUSE
-     Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
-        blacklist nouveau
-        options nouveau modeset=0
+    OpenSUSE
+      Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
+          blacklist nouveau
+          options nouveau modeset=0
      Regenerate the kernel initrd:
-        $ sudo /sbin/mkinitrd
-  Ubuntu
-     Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
-        blacklist nouveau
-        ptions nouveau modeset=0
-     Regenerate the kernel initramfs:
-        $ sudo update-initramfs -u
- 2.2 Reboot into text mode (runlevel 3)
+          $ sudo /sbin/mkinitrd
+    Ubuntu
+      Create a file at /etc/modprobe.d/blacklist-nouveau.conf with the following contents:
+         blacklist nouveau
+         ptions nouveau modeset=0
+      Regenerate the kernel initramfs:
+         $ sudo update-initramfs -u
+    2.2 Reboot into text mode (runlevel 3)
     shutdown graphical interface 
-        $ sudo init 3
+         $ sudo init 3
     Change to text mode(tty1)
-        Ctrl+Alt+F1
+         Ctrl+Alt+F1
     Verify that the Nouveau drivers are not loaded
         $ lsmod | grep nouveau
     Run the installer and follow the on-screen prompts (remember that do not select NVIDIA driver which may causes login errors)
@@ -92,12 +91,13 @@ I
 
 Three: Environment Setup and verify the installation
  
- 3.1  To add this path to the PATH variable
-     $ export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
-     The LD_LIBRARY_PATH variable (64bit)
-     $ export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-  3.2 verify the installation
-     $nvcc -V
+    3.1  To add this path to the PATH variable
+    PATH variable
+      $ export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
+    The LD_LIBRARY_PATH variable (64bit)
+      $ export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+    3.2 verify the installation
+      $nvcc -V
 nvcc: NVIDIA (R) Cuda compiler driver
 Copyright (c) 2005-2018 NVIDIA Corporation
 Built on Tue_Jan_10_13:22:03_CDT_2018
