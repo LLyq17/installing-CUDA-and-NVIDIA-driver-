@@ -4,7 +4,7 @@ Packages installation for ubuntu
 
    Note:All the following described installation methods have been implemented and completed sucessfully on my desktop(ubuntu) or notebook(ubuntu)! Without doubt, I aslo saw errors confusing me and ended up with falling before because it is new to me !And it really wasted time i think!Now I get it and know how to install them more efficiently and simply with NO MISTAKE! I hope it is hopeful for you!
 
-1> installing CUDA( CUDA Toolkit v10.0.130 as an example)
+1> INSTALLING CUDA( CUDA Toolkit v10.0.130 as an example)
 
 Here are two methods:
 
@@ -117,9 +117,9 @@ Cuda compilation tools, release 10.0, V10.0.130
 1>END
 
 
-2>installing NVIDIA-driver
-  Steps
-  One:Download the corresponding NVIDIA-driver for graphics card in https://www.nvidia.cn/Download/index.aspx?lang=cn
+2>INSTALLING NVIDIA-driver
+
+  Steps one:Download the corresponding NVIDIA-driver for graphics card in https://www.nvidia.cn/Download/index.aspx?lang=cn
   
     1.1 disabling Nouveau
       Ubuntu
